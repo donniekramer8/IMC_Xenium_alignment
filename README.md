@@ -301,7 +301,7 @@ IoU = overlap / combined area: 1 is perfect overlap, 0 is none. The absolute val
 
 ### Elastic refinement
 
-The elastic step is adapted from an `elastic_registration_opencv` routine (ECC + Farnebäck optical flow) originally written for an H&E/IF training-tile pipeline. It works on two images on the IMC pixel grid: the IMC nuclear image (fixed) and the Xenium DAPI already warped by the affine fit (moving).
+The elastic step refines the affine result with an intensity-based correction (ECC + Farnebäck optical flow). It works on two images on the IMC pixel grid: the IMC nuclear image (fixed) and the Xenium DAPI already warped by the affine fit (moving).
 
 1. **ECC affine refinement** (OpenCV `findTransformECC`): a small automatic affine correction that maximises the correlation between the two images. It removes any remaining global offset from clicking.
 2. **Dense optical flow** (OpenCV Farnebäck): estimates a displacement for every IMC pixel, so local stretching and tearing of the section can be followed.
