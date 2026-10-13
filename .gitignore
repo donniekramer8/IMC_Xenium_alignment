@@ -1,0 +1,21 @@
+# results written by the viewer
+outputs/*
+!outputs/.gitkeep
+
+# never commit data
+*.tif
+*.tiff
+*.ome.tif
+*.parquet
+*.npz
+*.zarr
+*.zarr.zip
+*.h5
+*.xlsx
+
+# python / editor clutter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vscode/
+.DS_Store

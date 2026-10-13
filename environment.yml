@@ -1,0 +1,23 @@
+# Conda environment for the IMC <-> Xenium landmark alignment viewer.
+#   conda env create -f environment.yml
+#   conda activate imc_xenium_align
+name: imc_xenium_align
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy>=2,<2.3    # matches opencv-python-headless 4.12
+  - scipy
+  - scikit-image
+  - pandas
+  - pyarrow          # reads Xenium .parquet files
+  - tifffile
+  - imagecodecs      # decodes the JPEG2000-compressed Xenium morphology images
+  - matplotlib
+  - napari=0.7
+  - pyqt=5           # Qt GUI toolkit used by napari
+  - pip
+  - pip:
+      # "headless" = OpenCV without its own bundled Qt (the normal opencv-python wheel ships a
+      # second copy of Qt that clashes with napari's)
+      - opencv-python-headless==4.12.0.88
